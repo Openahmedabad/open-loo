@@ -27,13 +27,12 @@ export class EntryService {
      * @param {Loo} entry Data about the loo wrapped in JSON object
      * @returns {PromiseLike<number>} A promise to handle the callbacks for making an entry to firebase
      */
-    private addLoo(entry: Loo): PromiseLike<number> {
+    addLoo(entry: Loo): PromiseLike<number> {
         let operation: PromiseLike<number> = new Promise<number>(
             (resolve: (code: number) => void, reject: (code: number) => void) => {
                 // start a push operation and push the object against the id generated from UUID in "loo" namespace
-                this.firebaseService.database.list("loo/" + this.generateUUID()).push(entry).then((res: any) => {
+                this.firebaseService.database.object("loo/" + this.generateUUID()).set(entry).then((res: any) => {
                     // thai gayu!!!!!
-                    console.info(res);
                     resolve(200);
                 }).catch((err: Error) => {
                     // naa thayu :'(

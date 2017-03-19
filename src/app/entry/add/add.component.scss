@@ -26,6 +26,12 @@ md-card {
         margin-bottom: -24px !important;
         background: #F5F5F5;
 
+        .error {
+            font-size: 9pt;
+            letter-spacing: 0.06625em;
+            color: #F44336;
+        }
+
         [md-button], [md-raised-button] {
             min-width: 10em;
             font-size: 9pt;
