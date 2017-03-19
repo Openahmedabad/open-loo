@@ -1,0 +1,38 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>New Entry</md-card-title>
+        <md-card-subtitle>Make sure you are at the location or enter the location manually</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <div class="flex column">
+            <md-input-container>
+                <input mdInput type="number" placeholder="Latitude">
+                <md-hint align="start">Latitude of the Loo</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Longitude">
+                <md-hint align="start">Longitude of the Loo</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="text" placeholder="Name of the Loo">
+                <md-hint align="start">Ignore the names like, "Pay and Use Toilet"</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="text" placeholder="Address">
+                <md-hint align="start">Where is it ?</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Fees">
+                <md-hint align="start">Enter 0 for the free of cost service</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Cleanliness">
+                <md-hint align="start">Rate it from 0 to 9</md-hint>
+            </md-input-container>
+        </div>
+    </md-card-content>
+    <md-card-actions class="flex row right">
+        <button md-button color="primary">Cancel</button>
+        <button md-raised-button color="accent">Save</button>
+    </md-card-actions>
+</md-card>

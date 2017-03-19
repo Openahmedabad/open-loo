@@ -1,0 +1,42 @@
+/* Template classes to use throughout the application */
+
+.flex {
+    display: flex;
+
+    // horizontally
+    &.center {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+
+    // vertically
+    &.middle {
+        align-items: center;
+    }
+
+    &.bottom {
+        align-items: flex-end;
+    }
+
+    // flex fill to width/height
+    &.fill {
+        flex-grow: 1;
+    }
+
+    .fill {
+        flex-grow: 1;
+    }
+
+    // boxes
+    &.row {
+        flex-direction: row;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+    
+}

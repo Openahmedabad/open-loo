@@ -1,0 +1,17 @@
+// import all material theme
+@import '~@angular/material/core/theming/all-theme';
+
+// include base styles for angular material core
+@include mat-core();
+
+// define personal palettes
+// for each palette, optionally specify, default, lighter, and darker
+$primary: mat-palette($mat-blue, 500, 50);
+$accent: mat-palette($mat-lime, 500);
+$warn: mat-palette($mat-red, 500);
+
+// create the theme object consiting of all palettes
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// include theme styles for core and each component used in app.
+@include angular-material-theme($theme);
