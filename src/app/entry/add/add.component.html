@@ -1,0 +1,38 @@
+<md-card>
+    <md-card-header>
+        <md-card-title>New Entry</md-card-title>
+        <md-card-subtitle>Make sure you are at the location or enter the location manually</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+        <div class="flex column">
+            <md-input-container>
+                <input mdInput type="number" placeholder="Latitude" [(ngModel)]="looDetails.latitude">
+                <md-hint align="start">Latitude of the Loo</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Longitude" [(ngModel)]="looDetails.longitude">
+                <md-hint align="start">Longitude of the Loo</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="text" placeholder="Name of the Loo" [(ngModel)]="looDetails.name">
+                <md-hint align="start">Ignore the names like, "Pay and Use Toilet"</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="text" placeholder="Address" [(ngModel)]="looDetails.address">
+                <md-hint align="start">Where is it ?</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Fees*" [(ngModel)]="looDetails.fees">
+                <md-hint align="start">Enter 0 for the free of cost service. (required)</md-hint>
+            </md-input-container>
+            <md-input-container>
+                <input mdInput type="number" placeholder="Cleanliness" [(ngModel)]="looDetails.cleanliness">
+                <md-hint align="start">Rate it from 0 to 9</md-hint>
+            </md-input-container>
+        </div>
+    </md-card-content>
+    <md-card-actions class="flex row middle right">
+        <div class="error fill">{{error}}</div>
+        <button md-raised-button color="accent" [disabled]="isSaveInProgress" (click)="save()">Save</button>
+    </md-card-actions>
+</md-card>
