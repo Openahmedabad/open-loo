@@ -51,8 +51,7 @@ export class AddComponent {
             }, (failure: PositionError): void => {
                 console.error("location", failure.message);
             }, {
-                enableHighAccuracy: true,
-                timeout : 5000
+                enableHighAccuracy: true
             });
         }
     }
