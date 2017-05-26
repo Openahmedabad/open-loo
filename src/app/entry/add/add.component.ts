@@ -2,12 +2,15 @@
  * UI controller of the page for making new entries.
  * @author ndkcha
  * @since 0.1.0
- * @version 0.1.0
+ * @version 0.2.0
  */
 
 // import built-in and third party modules
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
+import { ActivatedRoute } from "@angular/router";
+import { Title } from "@angular/platform-browser";
+import { Subscription } from "rxjs/Subscription";
 
 // import in-app services
 import { EntryService } from './../entry.service';
@@ -15,12 +18,15 @@ import { EntryService } from './../entry.service';
 // import in-app interfaces
 import { Loo } from './../../shared/data.interface';
 
+// import constants
+import { GLOBAL } from "./../../shared/app.constants";
+
 @Component({
     selector: "ol-entry-add",
     templateUrl: "./add.component.html",
     styleUrls: ["./add.component.scss", "./add.component.phone.scss"]
 })
-export class AddComponent {
+export class AddComponent implements AfterViewInit, OnDestroy {
     /**
      * Loo details.
      * It is an object to maintain Loo details in bidirectional binding to UI.
@@ -30,6 +36,8 @@ export class AddComponent {
     error: string = "";
     /** Display status of save operation. */
     isSaveInProgress: boolean = false;
+    /** Collection of subscribed variables */
+    subscriptions: Subscription[] = [];
 
 
     /* mainly used for dependency injections */
@@ -37,9 +45,27 @@ export class AddComponent {
      * It initializes dependencies
      * @param {EntryService} entryService Handles data communications in entry module
      * @param {MdSnackBar} snackBar Service to dispatch Material Design snack bar messages
+     * @param {ActivatedRoute} activatedRoute Contains the information about a route associated with a component loaded
+     * @param {Title} titleService A service that can be used to get and set the title of a current HTML document
      */
-    constructor(private entryService: EntryService, private snackBar: MdSnackBar) {
+    constructor(private entryService: EntryService, private snackBar: MdSnackBar, private activatedRoute: ActivatedRoute, private titleService: Title) {
         
+    }
+
+    /* called when component is initiated */
+    ngAfterViewInit() {
+        // get location from browser
+        this.getLocation();
+
+        /** Handler to observe changes in route data */
+        let chData: Subscription = this.activatedRoute.data.subscribe(
+            (data: any): void => {
+                /** Title of the page */
+                let title: string = data['title'];
+                this.titleService.setTitle(title + GLOBAL.PAGE_TITLE);
+            }
+        );
+        this.subscriptions.push(chData);
     }
 
     /** Fetches location from browser's navigator module */
@@ -54,11 +80,6 @@ export class AddComponent {
                 enableHighAccuracy: true
             });
         }
-    }
-
-    ngAfterViewInit() {
-        // get location from browser
-        this.getLocation();
     }
 
     /** Save the entry to firebase */
@@ -95,5 +116,12 @@ export class AddComponent {
             });
             this.isSaveInProgress = false;
         });
+    }
+
+    /** called when component is destroyed */
+    ngOnDestroy() {
+        for (let subscription of this.subscriptions) {
+            subscription.unsubscribe();
+        }
     }
 }

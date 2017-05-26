@@ -2,7 +2,7 @@
  * Routing module for Entry module
  * @author ndkcha
  * @since 0.1.0
- * @version 0.1.0
+ * @version 0.2.0
  */
 
 // import built-in and third party modules
@@ -20,7 +20,10 @@ const routes: Routes = [
         children: [
             {
                 path: "",
-                component: AddComponent
+                component: AddComponent,
+                data: {
+                    title: "Add an entry"
+                }
             }
         ]
     }
