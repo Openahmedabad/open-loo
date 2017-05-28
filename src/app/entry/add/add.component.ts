@@ -39,7 +39,6 @@ export class AddComponent implements AfterViewInit, OnDestroy {
     /** Collection of subscribed variables */
     subscriptions: Subscription[] = [];
 
-
     /* mainly used for dependency injections */
     /**
      * It initializes dependencies
