@@ -1,6 +1,6 @@
 <md-progress-bar style="position: absolute; height: 4px; top: 0; left: 0" mode="indeterminate" *ngIf="isLoading"></md-progress-bar>
 <div class="ol-map-container">
-    <agm-map [scrollwheel]="false" [latitude]="latitude" [longitude]="longitude" [styles]="mapStyle" [zoom]="13">
+    <agm-map [scrollwheel]="false" [latitude]="latitude" [longitude]="longitude" [styles]="mapStyle" [zoom]="16">
         <agm-marker *ngFor="let loo of looList" iconUrl="assets/toilet.svg" [latitude]="loo.latitude" [longitude]="loo.longitude">
             <agm-info-window #infoWindow disableAutoPan="true">
                 <div class="info-window flex column">
