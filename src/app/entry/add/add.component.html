@@ -33,6 +33,7 @@
     </md-card-content>
     <md-card-actions class="flex row middle right">
         <div class="error fill">{{error}}</div>
+        <button md-button color="primary" [disabled]="isSaveInProgress" (click)="discard()">Discard</button> 
         <button md-raised-button color="accent" [disabled]="isSaveInProgress" (click)="save()">Save</button>
     </md-card-actions>
 </md-card>

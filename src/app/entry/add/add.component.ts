@@ -8,7 +8,7 @@
 // import built-in and third party modules
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { Subscription } from "rxjs/Subscription";
 
@@ -47,10 +47,9 @@ export class AddComponent implements AfterViewInit, OnDestroy {
      * @param {MdSnackBar} snackBar Service to dispatch Material Design snack bar messages
      * @param {ActivatedRoute} activatedRoute Contains the information about a route associated with a component loaded
      * @param {Title} titleService A service that can be used to get and set the title of a current HTML document
+     * @param {Router} router Provides the navigation and url manipulation capabilities
      */
-    constructor(private entryService: EntryService, private snackBar: MdSnackBar, private activatedRoute: ActivatedRoute, private titleService: Title) {
-        
-    }
+    constructor(private entryService: EntryService, private snackBar: MdSnackBar, private activatedRoute: ActivatedRoute, private titleService: Title, private router: Router) { }
 
     /* called when component is initiated */
     ngAfterViewInit() {
@@ -80,6 +79,11 @@ export class AddComponent implements AfterViewInit, OnDestroy {
                 enableHighAccuracy: true
             });
         }
+    }
+
+    /** Discard an entry and go to main */
+    discard(): void {
+        this.router.navigate(["/"]);
     }
 
     /** Save the entry to firebase */

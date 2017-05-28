@@ -1,0 +1,14 @@
+@media only screen and (max-width: 500px) {
+    .sebm-google-map-container {
+        height: 80vh;
+    }
+
+    .ol-map-container {
+        margin-top: 16px;
+
+        .btn-home {
+            top: 1.6em;
+            left: 2.2em;
+        }
+    }
+}
