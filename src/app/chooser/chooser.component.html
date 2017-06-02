@@ -1,0 +1,22 @@
+<div class="flex row middle center ol-chooser-container" style="flex-wrap: wrap">
+    <md-card>
+        <md-card-content class="flex row middle">
+            <md-icon>near_me</md-icon>
+            <div class="flex column">
+                <div class="heading">View in Map</div>
+                <p>See all at once. But enable location services for better results</p> 
+                <button class="button" md-raised-button color="primary" (click)="goToMap()">Explore the Map</button>
+            </div>
+        </md-card-content>
+    </md-card>
+    <md-card>
+        <md-card-content class="flex row middle">
+            <md-icon>add_location</md-icon>
+            <div class="flex column">
+                <div class="heading">Add a Loo</div>
+                <p>Did we miss a Loo ? Contribute to our database</p>
+                <button class="button" md-raised-button color="primary" (click)="goToAdd()">Contribute</button>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

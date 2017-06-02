@@ -1,0 +1,32 @@
+<md-progress-bar style="position: absolute; height: 4px; top: 0; left: 0" mode="indeterminate" *ngIf="isLoading"></md-progress-bar>
+<div class="ol-map-container">
+    <agm-map [scrollwheel]="false" [latitude]="latitude" [longitude]="longitude" [styles]="mapStyle" [zoom]="16">
+        <agm-marker *ngFor="let loo of looList" iconUrl="assets/toilet.svg" [latitude]="loo.latitude" [longitude]="loo.longitude">
+            <agm-info-window #infoWindow disableAutoPan="true">
+                <div class="info-window flex column">
+                    <div class="flex row bottom" style="margin-top: 8px">
+                        <div><span class="name">{{loo.name}}</span></div>
+                    </div>
+                    <div class="flex row details middle">
+                        <div class="flex column">
+                            <span>Use it for &#8377;&nbsp;{{loo.fees}}</span>
+                            <span>Cleanliness: {{loo.cleanliness}} out of 10</span>
+                        </div>
+                        <a *ngIf="loo.latitude" href="https://maps.google.com/?q={{loo.latitude}},{{loo.longitude}}" class="directions" target="blank" mdTooltip="Open in Google Maps for directions">
+                            <md-icon>directions</md-icon>
+                        </a>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="link">
+                        <span>{{loo.address}}</span>
+                    </div>
+                </div>
+            </agm-info-window>
+        </agm-marker>
+        <agm-marker iconUrl="assets/map-pin.svg" [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+
+    <button md-mini-fab class="btn-home" color="primary" mdTooltip="Changed your mind ? Go to Homepage" (click)="goToHome()">
+        <md-icon>home</md-icon>
+    </button>
+</div>

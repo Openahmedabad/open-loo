@@ -1,6 +1,6 @@
 {
   "name": "open-loo",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.0",
     "@angular/animations": "^4.0.2",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",

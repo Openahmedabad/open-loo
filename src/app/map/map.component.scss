@@ -1,0 +1,57 @@
+// import pre defined classes
+@import "./../shared/theme/class";
+
+.sebm-google-map-container {
+    height: 70vh;
+}
+
+.ol-map-container {
+    height: 100%;
+
+    .info-window {
+        .details {
+            padding: 8px 0 3px;
+            letter-spacing: 0.04625em;
+        }
+
+        .link {
+            text-align: center;
+        }
+
+        .hr {
+            margin: 8px;
+            height: 1px;
+            background: #0AC9B6;
+        }
+
+        .name {
+            font-size: 16pt;
+            letter-spacing: 0.00625em;
+            font-weight: 400;
+        }
+
+        a {
+            cursor: pointer;
+            font-size: 9pt;
+            text-decoration: none;
+            outline: none;
+            color: #424242;
+            transition: color 300ms ease;
+
+            &.directions {
+                position: absolute;
+                right: 2px;
+            }
+
+            &:hover {
+                color: #757575;
+            }
+        }
+    }
+
+    .btn-home {
+        position: absolute;
+        top: 4em;
+        left: 10em;
+    }
+}

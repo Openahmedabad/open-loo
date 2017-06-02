@@ -7,6 +7,7 @@
 
 // import built-in and third party modules
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
     selector: "ol-entry",
@@ -14,5 +15,15 @@ import { Component } from '@angular/core';
     styleUrls: ['./entry.component.scss', "./entry.component.phone.scss"]
 })
 export class EntryComponent {
-    
+    /* mainly used for dependency injection */
+    /**
+     * It initializes dependencies.
+     * @param {Router} router Provides the navigation and url manipulation capabilities
+     */
+    constructor(private router: Router) { }
+
+    /** Go to homepage */
+    goToHome(): void {
+        this.router.navigate(["/"]);
+    }
 }

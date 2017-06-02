@@ -2,7 +2,7 @@
  * Contants used throughout the applications.
  * @author ndkcha
  * @since 0.1.0
- * @version 0.1.0
+ * @version 0.2.0
  */
 
 // import built-in and third party modules
@@ -15,4 +15,17 @@ export const FIREBASE: FirebaseAppConfig = {
     databaseURL: "https://open-ahmedabad.firebaseio.com",
     storageBucket: "open-ahmedabad.appspot.com",
     messagingSenderId: "140801138096"
+}
+
+/** Global constants used throughout the application */
+export const GLOBAL = {
+    /** Suffix of the page title */
+    PAGE_TITLE: " - Open Loo",
+    /** Status codes */
+    STATUS: {
+        /** Successful event */
+        SUCCESS: 200,
+        /** Failed event */
+        FAILURE: 400
+    }
 }
